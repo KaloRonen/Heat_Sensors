@@ -1,6 +1,7 @@
 import os
 import sys
 import pandas as pd
+import matplotlib.pyplot as plt
 
 
 def get_sensor_data():
@@ -11,14 +12,15 @@ def get_sensor_data():
     sensor_positions = pd.read_table(sensors_position_filepath, sep='\s+', header=None, names=["x", "y"])
     sensor_heat_data = pd.read_table(sensor_heat_data_filepath, sep='\s+', header=None)
 
-    data = sensor_positions.add(sensor_heat_data, fill_value=0)
+    data = sensor_positions.join(sensor_heat_data)
+
     return data
 
 
 def main():
     all_data = get_sensor_data()
-    print(all_data)
-    
+    print(all_data.head(5))
+
 
 
 if __name__ == 'main':
