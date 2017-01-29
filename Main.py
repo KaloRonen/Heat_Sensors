@@ -19,7 +19,7 @@ def get_sensor_data():
 
 def main():
     all_data = get_sensor_data()
-    print(all_data.head(5))
+    print(all_data.isnull().values.any())
 
 
 
