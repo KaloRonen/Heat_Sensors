@@ -22,7 +22,6 @@ def main():
     print(all_data.isnull().values.any())
 
 
-
 if __name__ == 'main':
     main()
 
